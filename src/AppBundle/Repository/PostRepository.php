@@ -28,6 +28,14 @@ use Pagerfanta\Pagerfanta;
 class PostRepository extends EntityRepository
 {
     /**
+     * @return Post[]
+     */
+    public function findAll()
+    {
+        return $this->findBy([], ['publishedAt' => 'DESC']);
+    }
+
+    /**
      * @return Query
      */
     public function queryLatest()
